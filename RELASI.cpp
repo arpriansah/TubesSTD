@@ -1,83 +1,72 @@
-#include <iostream>
 #include "RELASI.h"
 
-using namespace std;
-
-void createListRelasi(List_relasi &L){
-    first_relasi(L) = NULL;
-    last_relasi(L) = NULL;
+void createListRelasi(addressRelasi &L){
+    L.first =NULL;
+    L.last = NULL;
 }
 
-addressRelasi alokasi_relasi(addressMobil P, ){
-    addressRelasi P = new elmlist_relasi;
-
-
-    next_relasi(P) = NULL;
+addressRelasi alokasi_Relasti(addressMobil P,addrChild Q){
+    addressRelasi R = new elmlistRelasi;
+    R -> parent = P;
+    R -> child = Q;
+    R -> next =NULL;
 }
-
-void dealokasi_relasi(addressRelasi &P){
-    delete P;
+void insertFirstRelasi(addressRelasi &L, addressRelasi P){
+    if (L.first == NULL){
+        L.first = P;
+        L.last = P:
+    }else {
+        P->next= L.first;
+        L.first = P;
 }
-
-void insertLastRelasi(List_relasi &L, addressRelasi P){
-    if(first_relasi(L) == NULL){
-        first_relasi(L) = P;
-        next_relasi(first_relasi(L)) = first_relasi(L);
-        prev_relasi(first_relasi(L)) = first_relasi(L);
-    }else{
-        addressRelasi Q = prev_relasi(first_relasi(L));
-        prev_relasi(P) = Q;
-        prev_relasi(first_relasi(L)) = P;
-        next_relasi(P) = first_relasi(L);
-        next_relasi(Q) = P;
-        last_relasi(L) = P;
+void insertLastRelasi(addressRelasi &L, addressRelasi P){
+    if (L.first == NULL){
+        L.first = P;
+        L.last = P:
+    }else {
+        L.last->next =P;
+        L.last =P;
     }
 }
+void insertAfterRelasi(addressRelasi Prec, addressRelasi P){
+    P = Prec->next;
+    Prec->next = P;
+}
+void deleteFirstRelasi(addressRelasi &L, addressRelasi &P){
+    P =L.first;
+    if(L.first->next !=NULL){
 
-void printRelasi(List_relasi L){
-    addressRelasi P;
-    if(first_relasi(L) == NULL){
-        cout << "Tidak Ada Data" << endl;
-    }else{
-        P = first_relasi(L);
-        do{
-            cout << << endl;
-            P = next_relasi(P);
-        }while(P != first_relasi(L));
-        cout << endl;
+    L.first = P->next;
+    P->next= NULL
+    else{
+        L.first = NULL
     }
 }
+void deleteLastRelasi(addressRelasi &L, addressRelasi &P){
+    addressRelasi temp =L.first;
+    P =L.last;
+    while (temp->next != L.last){
+        temp = temp->next;
+    }
+    L.last = temp;
+    L.last->next =NULL;
 
-void deleteRelasi(List_relasi &L, addressRelasi &P){
-    if(first_relasi(L) != NULL){
-        addressRelasi Q = first_relasi(L);
-        if(next_relasi(first_relasi(L)) == first_relasi(L)){
-            first_relasi(L) = NULL;
-            last_relasi(L) = NULL;
-            next_relasi(L) = NULL;
-            prev_relasi(L) = NULL;
-        }else if(P == first_relasi(L) && next_relasi(P) != first_relasi(L)){
-            Q = next_relasi(P);
-            first_relasi(L) = Q;
-            next_relasi(last_relasi(L)) = Q;
-            prev_relasi(Q) = last_relasi(L);
-            next_relasi(P) = NULL;
-            prev_relasi(P) = NULL;
-        }else if(P == last_relasi(L)){
-            Q = prev_relasi(P);
-            next_relasi(Q) = first_relasi(L);
-            prev_relasi(first_relasi(L)) = Q;
-            next_relasi(P) = NULL;
-            prev_relasi(P) = NULL;
-            last_relasi(L) = Q;
-        }else{
-            Q = next_relasi(P);
-            addressRelasi R = prev_relasi(P);
-            next_relasi(R) = Q;
-            prev_relasi(Q) = R;
-            next_relasi(P) = NULL;
-            prev_relasi(P) = NULL;
+}
+void deleteAfterRelasi(addressrelasi Prec, addressrelasi &P){
+    P= Prec->next;
+    Prec->next = P->next;
+    P->next =NULL;
+}
+
+void checkConnection(List_relasi L,ListChild L2,List_mobil L3,string X, int Y){
+    addrChild Q, addressMobil R;
+    Q=searchByID(L2,X);
+    R=searchByID(L3,Y);
+    addressRelasi P = L.first_relasi;
+    while ( P!=NULL ){
+        if(P.Parent== Q  && P.Child == R){
+            return P;
         }
+        P = P->next;
     }
 }
-
