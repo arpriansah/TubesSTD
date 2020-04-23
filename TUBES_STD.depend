@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1584205420 source:c:\users\user\videos\tubes_std\tubes_std\main.cpp
+	<iostream>
+
+1587202991 source:c:\users\user\videos\tubes_std\tubes_std\mobil.cpp
+	<iostream>
+	"Mobil.h"
+
+1587202796 c:\users\user\videos\tubes_std\tubes_std\mobil.h
+	<iostream>
+
