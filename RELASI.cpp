@@ -12,6 +12,10 @@ addressRelasi alokasi_Relasi(addressMobil P,addrChild Q){
     R -> next =NULL;
     return R;
 }
+
+void dealokasiRelasi(addressRelasi &P){
+    delete P;
+}
 void insertFirstRelasi(listRelasi &L, addressRelasi P){
     if (L.first == NULL){
         L.first = P;
@@ -36,8 +40,6 @@ void insertAfterRelasi(addressRelasi Prec, addressRelasi P){
 }
 void deleteFirstRelasi(listRelasi&L, addressRelasi &P){
     P =L.first;
-    P->child =NULL;
-    P->parent =NULL;
     if(L.first->next !=NULL){
 
     L.first = P->next;
@@ -49,8 +51,6 @@ void deleteFirstRelasi(listRelasi&L, addressRelasi &P){
 void deleteLastRelasi(listRelasi &L, addressRelasi &P){
     addressRelasi temp =L.first;
     P =L.last;
-    P->child =NULL;
-    P->parent =NULL;
     while (temp->next != L.last){
         temp = temp->next;
     }
@@ -59,8 +59,6 @@ void deleteLastRelasi(listRelasi &L, addressRelasi &P){
 }
 void deleteAfterRelasi(addressRelasi Prec, addressRelasi &P){
     P= Prec->next;
-    P->child =NULL;
-    P->parent =NULL;
     Prec->next = P->next;
     P->next =NULL;
 }
@@ -87,17 +85,108 @@ void Connection(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y){
 void disconnect(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y){
     addressMobil P =searchByID(L3,Y);
     addrChild Q = searchByID_Child(L2,X);
-    addressRelasi R = L.first;
+    addressRelasi R = L.first,S;
+    if (P != NULL && Q != NULL){
     if ( R->parent == P && R->child == Q){
+        R->child =NULL;
+        R->parent =NULL;
         deleteFirstRelasi(L,R);
     }else {
     while (R != NULL && R->next->parent != P && R->next->child != Q){
         R =R->next;
     }
     if (R->next == L.last){
+        R->next->child =NULL;
+        R->next->parent =NULL;
         deleteLastRelasi(L,R);
     }else{
-        deleteAfterRelasi(R,R->next);
+        R->child =NULL;
+        R->parent =NULL;
+        S = R;
+        R = R->next;
+        deleteAfterRelasi(S,R);
+
+    }
+    dealokasiRelasi(R);
+    }
+    }
+}
+
+
+void Delete_Child(listRelasi &L,ListChild &L2,int X){
+    addrChild Q = searchByID_Child(L2,X);
+    addressRelasi R = L.first,S;
+    if(Q != NULL){
+
+    if(R->child == Q){
+        deleteFirstRelasi(L,R);
+    }
+    while (R != NULL && R->next->child != Q){
+        R =R->next;
+    }
+    if (R->next == L.last){
+        R->next->child =NULL;
+        R->next->parent =NULL;
+        deleteLastRelasi(L,R);
+    }else {
+        S = R;
+        R = R->next;
+        R->child =NULL;
+        R->parent =NULL;
+
+        deleteAfterRelasi(S,R);
+    }
+    dealokasiRelasi(R);
+
+    if (Q != NULL){
+        if(Q == L2.first){
+            deleteFirst(L2,Q);
+        }else if (Q == L2.first){
+            deleteLast(L2,Q);
+        }else{
+            deleteAfter(L2,Q->prev,Q);
+        }
+    }
+    }
+}
+
+void Delete_Parent(listRelasi &L,List_mobil &L2,int X){
+    addressMobil Q = searchByID(L2,X),P;
+    addressRelasi R = L.first,S;
+    if(Q != NULL){
+
+    if(R->parent == Q){
+        deleteFirstRelasi(L,R);
+    }
+    while (R != NULL && R->next->parent != Q){
+        R =R->next;
+    }
+    if (R->next == L.last){
+        R->next->child =NULL;
+        R->next->parent =NULL;
+        deleteLastRelasi(L,R);
+    }else {
+        S = R;
+        R = R->next;
+        R->child =NULL;
+        R->parent =NULL;
+        deleteAfterRelasi(S,R);
+    }
+    dealokasiRelasi(R);
+
+    if (Q != NULL){
+        if(Q == L2.first_mobil){
+            deleteFirstMobil(L2,P);
+        }else if (Q == L2.first_mobil){
+            deleteLastMobil(L2,Q);
+        }else{
+            P = L2.first_mobil;
+            while (P->next_mobil !=Q ){
+                P->next_mobil;
+            }
+            deleteAfterMobil(L2,P,Q);
+        }
+        dealokasi_mobil(Q);
     }
     }
 }
