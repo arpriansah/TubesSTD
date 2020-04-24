@@ -24,6 +24,10 @@ addrChild createNewElmt(infoType_Child X)
     return P;
 }
 
+void dealokasi_Child(addrChild &P){
+    delete P;
+}
+
 void insertFirst(ListChild &L,addrChild P){
     if(L.first != NULL){
         P->next=L.first;
@@ -98,7 +102,7 @@ void deleteAfter(ListChild &L,addrChild &Prec,addrChild &P){
     }
 }
 
-addrChild searchByID(ListChild &L,int x){
+addrChild searchByID_Child(ListChild L,int x){
     addrChild P = L.first;
     while (P != NULL){
         if(P->info.NIK == x){
@@ -134,7 +138,7 @@ void insertSorted(ListChild &L, infoType_Child X){
         insertFirst(L,P);
     }else{
         addrChild Q = L.first;
-        while (Q != NULL && X.NIK < Q->info.ID){
+        while (Q != NULL && X.NIK < Q->info.NIK){
             Q = Q->next;
         }
         if (Q->next == L.first ){
@@ -146,11 +150,11 @@ void insertSorted(ListChild &L, infoType_Child X){
 }
 
 void deleteSorted(ListChild &L,int X){
-    addrChild P = searchByID(L,X);
+    addrChild P = searchByID_Child(L,X);
     if (P != NULL){
         if(P == L.first){
             deleteFirst(L,P);
-        }else if (P->next === L.first){
+        }else if (P == L.first){
             deleteLast(L,P);
         }else{
             deleteAfter(L,P->prev,P);
