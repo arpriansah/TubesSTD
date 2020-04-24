@@ -28,13 +28,14 @@ struct ListChild{
 
 void createList(ListChild &L);
 addrChild createNewElmt(infoType_Child X);
+void dealokasi_Child(addrChild &P);
 void insertFirst(ListChild &L, addrChild P);
 void insertAfter(ListChild &L, addrChild Prec, addrChild P);
 void insertLast(ListChild &L, addrChild P);
 void deleteFirst(ListChild &L, addrChild &P);
 void deleteLast(ListChild &L, addrChild &P);
 void deleteAfter(ListChild &L, addrChild &Prec, addrChild &P);
-addrChild searchByID(ListChild L, int x);
+addrChild searchByID_Child(ListChild L, int x);
 
 void printList(ListChild L);
 void insertSorted(ListChild &L, infoType_Child X);
