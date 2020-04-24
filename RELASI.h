@@ -2,6 +2,7 @@
 #define RELASI_H_INCLUDED
 
 #include "Mobil.h"
+#include "List_Child.h"
 #include <iostream>
 using namespace std;
 
@@ -25,15 +26,16 @@ struct listRelasi{
     addressRelasi last;
 };
 
-addressRelasi alokasi_Relasti(addressMobil P,addrChild Q);
-void createListRelasi(addressRelasi &L);
-void insertFirstRelasi(addressRelasi &L, addressRelasi P);
-void insertLastRelasi(addressRelasi &L, addressRelasi P);
+addressRelasi alokasi_Relasi(addressMobil P,addrChild Q);
+void createListRelasi(listRelasi &L);
+void insertFirstRelasi(listRelasi &L, addressRelasi P);
+void insertLastRelasi(listRelasi &L, addressRelasi P);
 void insertAfterRelasi(addressRelasi Prec, addressRelasi P);
-void deleteFirstRelasi(addressRelasi &L, addressRelasi &P);
-void deleteLastRelasi(addressRelasi &L, addressRelasi &P);
+void deleteFirstRelasi(listRelasi &L, addressRelasi &P);
+void deleteLastRelasi(listRelasi &L, addressRelasi &P);
 void deleteAfterRelasi(addressRelasi Prec, addressRelasi &P);
-void checkConnection(List_relasi L,ListChild L2,List_mobil L3,string X, int Y);
+addressRelasi checkConnection(listRelasi L,ListChild L2,List_mobil L3,int X, int Y);
+void Connection(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y);
 
 
 #endif // RELASI_H_INCLUDED
