@@ -40,5 +40,6 @@ addrChild searchByID_Child(ListChild L, int x);
 void printList(ListChild L);
 void insertSorted(ListChild &L, infoType_Child X);
 void deleteSorted(ListChild &L,int X);
+void inputUserChild(ListChild &L, infoType_Child X);
 
 #endif // LIST_CHILD_H_INCLUDED
