@@ -11,24 +11,29 @@ using namespace std;
 #define first_relasi(L) L.first_relasi
 #define last_relasi(L) L.last_relasi
 
-typedef struct elmlist_relasi *addressRelasi;
-struct elmlist_relasi{
-    addressRelasi next_relasi;
-    addressRelasi prev_relasi;
 
+typedef struct elmlistRelasi *addressRelasi;
 
-};
-struct List_relasi{
-    addressRelasi first_relasi;
-    addressRelasi last_relasi;
+struct elmlistRelasi{
+    addressMobil parent;
+    addrChild child;
+    addressRelasi next;
 };
 
-void createListRelasi(List_relasi &L);
-addressRelasi alokasi_relasi(addressMobil P, );
-void dealokasi_relasi(addressRelasi &P);
-void insertLastRelasi(List_relasi &L, addressRelasi P);
-void printRelasi(List_relasi L);
-void deleteRelasi(List_relasi &L, addressRelasi &P);
+struct listRelasi{
+    addressRelasi first;
+    addressRelasi last;
+};
+
+addressRelasi alokasi_Relasti(addressMobil P,addrChild Q);
+void createListRelasi(addressRelasi &L);
+void insertFirstRelasi(addressRelasi &L, addressRelasi P);
+void insertLastRelasi(addressRelasi &L, addressRelasi P);
+void insertAfterRelasi(addressRelasi Prec, addressRelasi P);
+void deleteFirstRelasi(addressRelasi &L, addressRelasi &P);
+void deleteLastRelasi(addressRelasi &L, addressRelasi &P);
+void deleteAfterRelasi(addressRelasi Prec, addressRelasi &P);
+void checkConnection(List_relasi L,ListChild L2,List_mobil L3,string X, int Y);
 
 
 #endif // RELASI_H_INCLUDED
