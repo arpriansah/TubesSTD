@@ -134,17 +134,17 @@ void printList(ListChild L){
 
 void insertSorted(ListChild &L, infoType_Child X){
     addrChild P = createNewElmt(X);
-    if (L.first == NULL){
-        insertFirst(L,P);
+    if (L.first == NULL || L.first->info.NIK > X.NIK){
+        insertFirst(L,createNewElmt(X));
     }else{
         addrChild Q = L.first;
         while (Q != NULL && X.NIK < Q->info.NIK){
             Q = Q->next;
         }
         if (Q->next == L.first ){
-            insertLast(L,P);
+            insertLast(L,createNewElmt(X));
         }else {
-            insertAfter(L,Q,P);
+            insertAfter(L,Q,createNewElmt(X));
         }
     }
 }
@@ -161,4 +161,20 @@ void deleteSorted(ListChild &L,int X){
         }
     }
 
+}
+
+void inputUserChild(ListChild &L, infoType_Child X){
+    cout<<"Masukkan Nama Penyewa :\t ";
+    cin.get();
+    getline(cin,X.Nama);
+    cout<<"Masukkan alamat Penyewa :\t ";
+    cin.get();
+    getline(cin,X.Alamat);
+    cout<<"Masukkan NIK Penyewa :\t ";
+    cin>>X.NIK;
+    cout<<"Masukkan No. telfon Penyewa :\t ";
+    cin>>X.NoTlp;
+    cout<<"Masukkan tanggal lahir Penyewa :\t ";
+    cin>>X.TglLahir;
+    insertSorted(L,X);
 }
