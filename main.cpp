@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 #include "Mobil.h"
 #include "List_Child.h"
 #include "RELASI.h"
@@ -11,11 +12,15 @@ int main(){
     infotype P;
     dataPenyewa Z;
     bool cek;
+    List_mobil LM;
+    ListChild LC;
+    listRelasi LR;
     createListMobil(LM);
     createList(LC);
     createListRelasi(LR);
     int menu, r, s, x;
     do {
+        system("CLS");
     	cout << "*==========================================*" << endl;
     	cout << "*||              MAIN MENU               ||*" << endl;
     	cout << "*==========================================*" << endl;
@@ -27,7 +32,7 @@ int main(){
     	cout << "* 6.  Check connect                        *" << endl;
     	cout << "* 7.  Disconnect                           *" << endl;
     	cout << "* 8.  Print Relasi                         *" << endl;
-        cout << "* 9.  Print *" << endl;
+        cout << "* 9.  Print                                *" << endl;
         cout << "* 10. Delete Parent                        *" << endl;
         cout << "* 11. Delete Child                         *" << endl;
     	cout << "*==========================================*" << endl;
@@ -43,12 +48,12 @@ int main(){
                 cout << " Jenis mobil   : ";
                 cin >> P.jenis_mobil;
                 cout << " Nama mobil    : ";
-                cin >> P.nama_mobil;
+                cin.get();
+                getline(cin,P.nama_mobil);
                 cout << " Kondisi mobil : ";
                 cin >> P.kondisi_mobil;
-                addressMobil P1 = alokasi_mobil(P);
                 if(first_mobil(LM) == NULL){
-                    insertFirstMobil(LM, P1);
+                    insertFirstMobil(LM, alokasi_mobil(P));
                 }else{
                     addressMobil Q = first_mobil(LM);
                     while(Q != NULL){
@@ -58,14 +63,15 @@ int main(){
                         Q = next_mobil(Q);
                     }
                     if(!cek){
-                        insertLastMobil(LM, P1);
+                        insertLastMobil(LM, alokasi_mobil(P));
                     }else{
                         cout << "ID telah terdaftar" << endl;
                     }
                 }
                 getch();
+                break;
             }
-            break;
+
 
             case 2:{
                 system("CLS");
@@ -78,42 +84,14 @@ int main(){
             case 3:{
                 system("CLS");
                 cout << "*===INPUT PENYEWA===*" << endl;
-                cout << " ID Penyewa    : ";
-                cin >> Z.ID;
-                cout << " Nama          : ";
-                cin >> Z.Nama;
-                cout << " NIK           : ";
-                cin >> Z.NIK;
-                cout << " Alamat        : ";
-                cin >> Z.Alamat;
-                cout << " Tanggal Lahir : ";
-                cin >> Z.TglLahir;
-                cout << " No. Telpon    : ";
-                cin >> Z.NoTlp;
-                addrChild Z1 = createNewElmt(Z);
-                if(LC.first == NULL){
-                    insertFirst(LC, Z1);
-                }else{
-                    addrChild A = LC.first;
-                    while(A != NULL){
-                        if(A->info.ID == Z1->info.ID){
-                            cek = true;
-                        }
-                        A = A->next;
-                    }
-                    if(!cek){
-                        insertLast(LC, Z1);
-                    }else{
-                        cout << "ID telah terdaftar" << endl;
-                    }
-                }
+                inputUserChild(LC);
                 getch();
             }
             break;
 
             case 4:{
                 system("CLS");
-                cout << "*==INFO PENYEWA" << endl;
+                cout << "*==INFO PENYEWA===*" << endl;
                 printList(LC);
                 getch();
             }
@@ -138,7 +116,15 @@ int main(){
                 cin >> r;
                 cout << " ID Penyewa : ";
                 cin >> s;
-                checkConnection(LR, LC, LM, r, s);
+                if  (checkConnection(LR, LC, LM, r, s) != NULL ){
+                    addressMobil P =searchByID(LM,r);
+                    addrChild Q = searchByID_Child(LC,s);
+                    cout<<endl;
+                    cout<<"Mobil "<< P->info_mobil.nama_mobil <<" sedang dipakai oleh "<< Q->info.Nama;
+                }else{
+                    cout<<endl;
+                    cout<<" Mobil sedang tidak dipakai... ";
+                }
                 getch();
             }
             break;
@@ -167,7 +153,7 @@ int main(){
                 cout << " ID Mobil : ";
                 cin >> x;
                 addressMobil PR = searchByID(LM, x);
-                addressRelasi t = first_relasi(LR);
+                addressRelasi t = LR.first;
                 if(PR == NULL){
                     cout << "ID Mobil " << x << " Tidak Ditemukan" << endl;
                 }else{
@@ -178,8 +164,8 @@ int main(){
                             if(t->parent == PR){
                                 cout << " " << t->child->info.ID;
                             }
-                            t = next_relasi(t);
-                        }while{t != NULL};
+                            t = t->next;
+                        }while(t != NULL);
                     }
                 }
 
