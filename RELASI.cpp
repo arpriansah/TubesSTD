@@ -136,14 +136,13 @@ void disconnect(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y)
             while (R != NULL && R->next->parent != P && R->next->child != Q){
                 R =R->next;
             }
+            S = R;
             if (R->next == L.last){
                 R->next->child =NULL;
                 R->next->parent =NULL;
                 deleteLastRelasi(L,R);
             }else{
-                R->child =NULL;
-                R->parent =NULL;
-                S = R;
+
                 R = R->next;
                 deleteAfterRelasi(S,R);
 

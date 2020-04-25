@@ -137,6 +137,7 @@ int main(){
                 cout << " ID Penyewa : ";
                 cin >> s;
                 disconnect(LR, LC, LM, s, r);
+                cout<<"Disconnect berhasil...";
                 getch();
             }
             break;

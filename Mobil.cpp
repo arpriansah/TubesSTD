@@ -114,6 +114,7 @@ void printInfo_mobil(List_mobil L){
         P = first_mobil(L);
         do{
             cout << P->info_mobil.IDmobil << "\n" << P->info_mobil.jenis_mobil << "\n" << P->info_mobil.nama_mobil << "\n" << P->info_mobil.kondisi_mobil << "\n" << endl;
+            P =P->next_mobil;
         }while(P != NULL);
     }
 }
