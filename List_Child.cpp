@@ -1,8 +1,5 @@
 #include "List_Child.h"
 
-void cleared() {
-    system("cls");
-}
 
 void createList(ListChild &L)
 {
@@ -18,10 +15,13 @@ addrChild createNewElmt(infoType_Child X)
     P->info.Alamat=X.Alamat;
     P->info.NoTlp=X.NoTlp;
     P->info.TglLahir=X.TglLahir;
-    P->info.NIK=X.NIK;
     P->next=NULL;
     P->prev=NULL;
     return P;
+}
+
+void dealokasi_Child(addrChild &P){
+    delete P;
 }
 
 void insertFirst(ListChild &L,addrChild P){
@@ -98,15 +98,20 @@ void deleteAfter(ListChild &L,addrChild &Prec,addrChild &P){
     }
 }
 
-addrChild searchByID(ListChild &L,string x){
-    addrChild P = L.first;
-    while (P != NULL){
+addrChild searchByID_Child(ListChild L,int x){
+   addrChild P = L.first;
+   if (L.first != NULL){
+    do{
         if(P->info.ID == x){
             return P;
         }
         P=P->next;
-    }
+    }while(P != L.first);
+
     return NULL;
+   }else {
+    return NULL;
+   }
 }
 
 void printList(ListChild L){
@@ -115,7 +120,6 @@ void printList(ListChild L){
     do{
         cout<<"ID            :"<<P->info.ID<<endl;
         cout<<"Nama          :"<<P->info.Nama<<endl;
-        cout<<"NIK           :"<<P->info.NIK<<endl;
         cout<<"Alamat        :"<<P->info.Alamat<<endl;
         cout<<"Tanggal Lahir :"<<P->info.TglLahir<<endl;
         cout<<"No.Telpon     :"<<P->info.NoTlp<<endl;
@@ -128,13 +132,59 @@ void printList(ListChild L){
     cout<<endl;
 }
 
-void InputUser(ListChild &L){
-    dataPenyewa X;
-    addrChild P;
+void insertSorted(ListChild &L, infoType_Child X){
+    if (L.first == NULL || L.first->info.ID > X.ID){
+        insertFirst(L,createNewElmt(X));
+    }else{
+        addrChild Q = L.first->next;
+        while (Q->next != L.first && X.ID > Q->info.ID){
+            Q = Q->next;
+        }
+        if (Q->next == L.first &&  X.ID > Q->info.ID){
+            insertLast(L,createNewElmt(X));
+        }else {
+            insertAfter(L,Q->prev,createNewElmt(X));
+        }
+    }
+}
+
+void delete_(ListChild &L,addrChild &P){
+    if (P != NULL){
+        if(P == L.first){
+            deleteFirst(L,P);
+        }else if (P->next == L.first){
+            deleteLast(L,P);
+        }else{
+            deleteAfter(L,P->prev,P);
+        }
+        dealokasi_Child(P);
+        cout<<endl;
+        cout<<"Delete telah berhasil...";
+    }
+
+}
+
+void inputUserChild(ListChild &L){
+    infoType_Child X;
+    cout<<"Masukkan NIK Penyewa            : ";
     cin>>X.ID;
-    cout<<"Masukkan Nama :";
-    getline(cin, X.Nama);
+    if(searchByID_Child(L,X.ID)== NULL){
+        cout<<"Masukkan Nama Penyewa           : ";
+        cin.get();
+        getline(cin,X.Nama);
+        cout<<"Masukkan No. telfon Penyewa     : ";
+        cin>>X.NoTlp;
+        cout<<"Masukkan alamat Penyewa         : ";
+        cin.get();
+        getline(cin,X.Alamat);
+        cout<<"Masukkan tanggal lahir Penyewa  : ";
+        cin>>X.TglLahir;
+        insertSorted(L,X);
+        cout<<endl;
+        cout << "Data Penyewa telah terdaftar..." << endl;
+    }else {
+        cout<<endl;
+        cout << "NIK telah terdaftar... Coba lagi" << endl;
+    }
 
-
-    insertFirst(L,createNewElmt(X));
 }

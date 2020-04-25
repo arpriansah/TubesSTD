@@ -9,3 +9,40 @@
 1587202796 c:\users\user\videos\tubes_std\tubes_std\mobil.h
 	<iostream>
 
+1587831629 source:c:\users\asus\documents\github\tubesstd\main.cpp
+	<iostream>
+	<conio.h>
+	"Mobil.h"
+	"List_Child.h"
+	"RELASI.h"
+	"Case_Functional.h"
+
+1587643236 c:\users\asus\documents\github\tubesstd\mobil.h
+	<iostream>
+
+1587827560 c:\users\asus\documents\github\tubesstd\relasi.h
+	"Mobil.h"
+	"List_Child.h"
+	<iostream>
+
+1587643236 c:\users\asus\documents\github\tubesstd\case_functional.h
+	"RELASI.h"
+
+1587830870 source:c:\users\asus\documents\github\tubesstd\mobil.cpp
+	<iostream>
+	"Mobil.h"
+
+1587832410 c:\users\asus\documents\github\tubesstd\list_child.h
+	<bits/stdc++.h>
+
+1587643236 source:c:\users\asus\documents\github\tubesstd\case_functional.cpp
+	"Case_Functional.h"
+	"Mobil.h"
+	"RELASI.h"
+
+1587842831 source:c:\users\asus\documents\github\tubesstd\list_child.cpp
+	"List_Child.h"
+
+1587840928 source:c:\users\asus\documents\github\tubesstd\relasi.cpp
+	"RELASI.h"
+
