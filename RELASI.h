@@ -40,6 +40,7 @@ void Connection(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y);
 void disconnect(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y);
 void Delete_Child(listRelasi &L,ListChild &L2,int X);
 void Delete_Parent(listRelasi &L,List_mobil &L2,int X);
+void printRelasi(listRelasi L);
 
 
 #endif // RELASI_H_INCLUDED
