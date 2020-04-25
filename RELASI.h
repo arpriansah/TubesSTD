@@ -6,11 +6,6 @@
 #include <iostream>
 using namespace std;
 
-#define info_relasi(P) P->info_relasi
-#define next_relasi(P) P->next_relasi
-#define prev_relasi(P) P->prev_relasi
-#define first_relasi(L) L.first_relasi
-#define last_relasi(L) L.last_relasi
 
 
 typedef struct elmlistRelasi *addressRelasi;
