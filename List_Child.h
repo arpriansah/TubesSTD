@@ -6,12 +6,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 struct dataPenyewa{
-    string ID;
+    int ID;
     string Nama;
     string Alamat;
-    int NoTlp;
+    double NoTlp;
     int TglLahir;
-    int NIK;
     ;
 };
 typedef dataPenyewa infoType_Child;
@@ -39,7 +38,7 @@ addrChild searchByID_Child(ListChild L, int x);
 
 void printList(ListChild L);
 void insertSorted(ListChild &L, infoType_Child X);
-void deleteSorted(ListChild &L,int X);
-void inputUserChild(ListChild &L, infoType_Child X);
+void delete_(ListChild &L,addrChild &P);
+void inputUserChild(ListChild &L);
 
 #endif // LIST_CHILD_H_INCLUDED
