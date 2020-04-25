@@ -190,3 +190,34 @@ void Delete_Parent(listRelasi &L,List_mobil &L2,int X){
     }
     }
 }
+
+void printRelasi(listRelasi L){
+    addressRelasi P;
+    if(first_relasi(L) == NULL){
+        cout << "*================================*" << endl;
+        cout << "* Daftar Mobil yang Telah Disewa *" << endl;
+        cout << "*================================*" << endl;
+        cout << "         Tidak ada mobil" << endl;
+    }else{
+        cout << "*================================*" << endl;
+        cout << "* Daftar Mobil yang Telah Disewa *" << endl;
+        cout << "*================================*" << endl;
+        P = first_relasi(L);
+        do{
+            cout << " ID Mobil       : " << P->parent->info_mobil.IDmobil << endl;
+            cout << " Jenis Mobil    : " << P->parent->info_mobil.jenis_mobil << endl;
+            cout << " Nama Mobil     : " << P->parent->info_mobil.nama_mobil << endl;
+            cout << " Kondisi Mobil  : " << P->parent->info_mobil.kondisi_mobil << endl;
+            cout << " ID Penyewa     : " << P->child->info.ID << endl;
+            cout << " Nama Penyewa   : " << P->child->info.Nama << endl;
+            cout << " NIK            : " << P->child->info.NIK << endl;
+            cout << " Tanggal Lahir  : " << P->child->info.TglLahir << endl;
+            cout << " Alamat Penyewa : " << P->child->info.Alamat << endl;
+            cout << " No. Telpon     : " << P->child->info.NoTlp << endl;
+            cout << endl;
+            P = next_relasi(P);
+        }while(next_relasi(P) != NULL);
+        cout << "*================================*" << endl;
+        cout << endl;
+    }
+}
