@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="Case_Functional.cpp" />
 		<Unit filename="Case_Functional.h" />
+		<Unit filename="List_Child.cpp" />
+		<Unit filename="List_Child.h" />
 		<Unit filename="Mobil.cpp" />
 		<Unit filename="Mobil.h" />
 		<Unit filename="RELASI.cpp" />
@@ -41,6 +43,9 @@
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
+			<code_completion />
+			<envvars />
+			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

@@ -18,27 +18,27 @@ int main(){
     createListMobil(LM);
     createList(LC);
     createListRelasi(LR);
-    int menu, r, s, x;
-    do {
+    int menu, r, s, x,total=0;
+  do {
         system("CLS");
-    	cout << "*==========================================*" << endl;
-    	cout << "*||              MAIN MENU               ||*" << endl;
-    	cout << "*==========================================*" << endl;
-    	cout << "* 1.  Input Parent                         *" << endl;
-    	cout << "* 2.  Print all parent                     *" << endl;
-    	cout << "* 3.  Input child                          *" << endl;
-    	cout << "* 4.  Print child                          *" << endl;
-    	cout << "* 5.  Connect                              *" << endl;
-    	cout << "* 6.  Check connect                        *" << endl;
-    	cout << "* 7.  Disconnect                           *" << endl;
-    	cout << "* 8.  Print Relasi                         *" << endl;
-        cout << "* 9.  Print                                *" << endl;
-        cout << "* 10. Delete Parent                        *" << endl;
-        cout << "* 11. Delete Child                         *" << endl;
-    	cout << "*==========================================*" << endl;
+    	cout << "*===================================================================*" << endl;
+    	cout << "*||                       JASA SEWA MOBIL                         ||*" << endl;
+    	cout << "*===================================================================*" << endl;
+    	cout << "* 1.  Membuat data mobil                                            *" << endl;
+    	cout << "* 2.  Menampilkan semua data mobil                                  *" << endl;
+    	cout << "* 3.  Membuat data pelanggan                                        *" << endl;
+    	cout << "* 4.  Menampilkan semua data pelanggan                              *" << endl;
+    	cout << "* 5.  Membuat data pelanggan yang menyewa mobil                     *" << endl;
+    	cout << "* 6.  Cek status pelanggan yang belum mengembalikan mobil           *" << endl;
+    	cout << "* 7.  Menghapus pelanggan yang sudah mengembalikan mobil            *" << endl;
+    	cout << "* 8.  Menampilkan semua data pelanggan beserta mobil yang disewa    *" << endl;
+        cout << "* 9.  Mencari data pelanggan melalui ID mobil yang disewa           *" << endl;
+        cout << "* 10. Menghapus data mobil                                          *" << endl;
+        cout << "* 11. Menghapus data pelanggan                                      *" << endl;
+        cout << "* 12. Total Keuntungan dari rental mobil                            *" << endl;
+    	cout << "*===================================================================*" << endl;
     	cout << "\n Pilih menu (Angka): ";
     	cin >> menu;
-
     	switch(menu){
              case 1:{
                 system("CLS");
@@ -52,6 +52,8 @@ int main(){
                 getline(cin,P.nama_mobil);
                 cout << " Kondisi mobil : ";
                 cin >> P.kondisi_mobil;
+                cout << " Harga Rental  : Rp.";
+                cin >> P.hargaRental;
                 if(first_mobil(LM) == NULL){
                     insertFirstMobil(LM, alokasi_mobil(P));
                 }else{
@@ -68,6 +70,7 @@ int main(){
                         cout << "ID telah terdaftar" << endl;
                     }
                 }
+                cout<<"tekan enter untuk melanjutkan...";
                 getch();
                 break;
             }
@@ -77,6 +80,7 @@ int main(){
                 system("CLS");
                 cout << "*==INFO MOBIL==*" << endl;
                 printInfo_mobil(LM);
+                cout<<"tekan enter untuk melanjutkan...";
                 getch();
             }
             break;
@@ -93,6 +97,7 @@ int main(){
                 system("CLS");
                 cout << "*==INFO PENYEWA===*" << endl;
                 printList(LC);
+                cout<<"tekan enter untuk melanjutkan...";
                 getch();
             }
             break;
@@ -138,6 +143,8 @@ int main(){
                 cin >> s;
                 disconnect(LR, LC, LM, s, r);
                 cout<<"Disconnect berhasil...";
+                cout<<endl;
+                cout<<"tekan enter untuk melanjutkan...";
                 getch();
             }
             break;
@@ -169,7 +176,7 @@ int main(){
                         }while(t != NULL);
                     }
                 }
-
+                cout<<"tekan enter untuk melanjutkan...";
                 getch();
             }
             break;
@@ -177,9 +184,11 @@ int main(){
             case 10:{
                 system("CLS");
                 cout << "*===DELETE MOBIL===*" << endl;
-                cout << " ID Mobil : " << endl;
+                cout << " ID Mobil : ";
                 cin >> x;
                 Delete_Parent(LR, LM, x);
+                cout<<endl;
+                cout<<"tekan enter untuk melanjutkan...";
                 getch();
             }
             break;
@@ -187,9 +196,20 @@ int main(){
             case 11:{
                 system("CLS");
                 cout << "*===DELETE PENYEWA===*" << endl;
-                cout << " ID Penyewa : " << endl;
+                cout << " ID Penyewa : ";
                 cin >> x;
                 Delete_Child(LR, LC, x);
+                cout<<"tekan enter untuk melanjutkan...";
+                getch();
+            }
+            break;
+
+            case 12:{
+                system("CLS");
+                Total_Keuntungan_case1(LR,LM,total);
+                cout<<"Total pendapatan saat ini : Rp."<<total<<" "<<endl;
+                cout<<endl;
+                cout<<"tekan enter untuk melanjutkan...";
                 getch();
             }
             break;

@@ -9,11 +9,11 @@
 1587202796 c:\users\user\videos\tubes_std\tubes_std\mobil.h
 	<iostream>
 
-1587844700 source:e:\tubesstd\mobil.cpp
+1587902335 source:e:\tubesstd\mobil.cpp
 	<iostream>
 	"Mobil.h"
 
-1587844273 e:\tubesstd\mobil.h
+1587899062 e:\tubesstd\mobil.h
 	<iostream>
 
 1587844124 source:e:\tubesstd\case_functional.cpp
@@ -24,15 +24,15 @@
 1587844124 e:\tubesstd\case_functional.h
 	"RELASI.h"
 
-1587844246 e:\tubesstd\relasi.h
+1587900037 e:\tubesstd\relasi.h
 	"Mobil.h"
 	"List_Child.h"
 	<iostream>
 
-1587844657 e:\tubesstd\list_child.h
+1587901401 e:\tubesstd\list_child.h
 	<bits/stdc++.h>
 
-1587844668 source:e:\tubesstd\main.cpp
+1587905273 source:e:\tubesstd\main.cpp
 	<iostream>
 	<conio.h>
 	"Mobil.h"
@@ -40,9 +40,9 @@
 	"RELASI.h"
 	"Case_Functional.h"
 
-1587844969 source:e:\tubesstd\relasi.cpp
+1587905131 source:e:\tubesstd\relasi.cpp
 	"RELASI.h"
 
-1587844652 source:e:\tubesstd\list_child.cpp
+1587904784 source:e:\tubesstd\list_child.cpp
 	"List_Child.h"
 

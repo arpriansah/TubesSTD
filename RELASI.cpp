@@ -84,8 +84,7 @@ void deleteAfterRelasi(addressRelasi Prec, addressRelasi &P)
     P->next =NULL;
 }
 
-addressRelasi checkConnection(listRelasi L,ListChild L2,List_mobil L3,int X, int Y)
-{
+addressRelasi checkConnection(listRelasi L,ListChild L2,List_mobil L3,int X, int Y){
     addressMobil Q=searchByID(L3,X);
     addrChild R=searchByID_Child(L2,Y);
     addressRelasi P = L.first;
@@ -100,12 +99,10 @@ addressRelasi checkConnection(listRelasi L,ListChild L2,List_mobil L3,int X, int
     return NULL;
 }
 
-void Connection(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y)
-{
+void Connection(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y){
     addressMobil P =searchByID(L3,Y);
     addrChild Q = searchByID_Child(L2,X);
-    if (P != NULL && Q != NULL)
-    {
+    if (P != NULL && Q != NULL){
         insertLastRelasi(L,alokasi_Relasi(P,Q));
         cout<<"Connection berhasil...";
     }
@@ -122,8 +119,7 @@ void Connection(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y)
     }
 }
 
-void disconnect(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y)
-{
+void disconnect(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y){
     addressMobil P =searchByID(L3,Y);
     addrChild Q = searchByID_Child(L2,X);
     addressRelasi R = L.first,S;
@@ -187,6 +183,8 @@ void Delete_Child(listRelasi &L,ListChild &L2,int X){
             }
         }
     delete_(L2,Q);
+    }else{
+        cout<<"NIK penyewa tidak ditemukan..."<<endl;
     }
 }
 
@@ -235,11 +233,12 @@ void Delete_Parent(listRelasi &L,List_mobil &L2,int X){
             deleteAfterMobil(L2,temp,Q);
         }
     dealokasi_mobil(Q);
+    }else{
+        cout<<"ID mobil tidak ditemukan..."<<endl;
     }
 }
 
-void printRelasi(listRelasi L)
-{
+void printRelasi(listRelasi L){
     addressRelasi P;
     if(L.first == NULL)
     {
@@ -256,20 +255,30 @@ void printRelasi(listRelasi L)
         P = L.first;
         do
         {
-            cout << " ID Mobil       : " << P->parent->info_mobil.IDmobil << endl;
-            cout << " Jenis Mobil    : " << P->parent->info_mobil.jenis_mobil << endl;
-            cout << " Nama Mobil     : " << P->parent->info_mobil.nama_mobil << endl;
-            cout << " Kondisi Mobil  : " << P->parent->info_mobil.kondisi_mobil << endl;
-            cout << " ID Penyewa     : " << P->child->info.ID << endl;
-            cout << " Nama Penyewa   : " << P->child->info.Nama << endl;
-            cout << " Tanggal Lahir  : " << P->child->info.TglLahir << endl;
-            cout << " Alamat Penyewa : " << P->child->info.Alamat << endl;
-            cout << " No. Telpon     : " << P->child->info.NoTlp << endl;
+            cout << " ID Mobil                : " << P->parent->info_mobil.IDmobil << endl;
+            cout << " Jenis Mobil             : " << P->parent->info_mobil.jenis_mobil << endl;
+            cout << " Nama Mobil              : " << P->parent->info_mobil.nama_mobil << endl;
+            cout << " Kondisi Mobil           : " << P->parent->info_mobil.kondisi_mobil << endl;
+            cout << " Harga rental            : " << P->parent->info_mobil.hargaRental << endl;
+            cout << " Data Penyewa"<<endl;
+            cout << " NIK Penyewa             : " << P->child->info.ID << endl;
+            cout << " Nama Penyewa            : " << P->child->info.Nama << endl;
+            cout << " Alamat Penyewa          : " << P->child->info.Alamat << endl;
+            cout << " Tanggal Peminjaman      : " <<P->child->info.tanggal_peminjaman<<endl;
+            cout << " Tanggal Pengembalian    : " <<P->child->info.tanggal_pengembalian<<endl;
             cout << endl;
             P = P->next;
         }
         while(P != NULL);
         cout << "*================================*" << endl;
         cout << endl;
+    }
+}
+
+void Total_Keuntungan_case1(listRelasi L,List_mobil L2,int &x){
+    addressRelasi R = L.first;
+    while (R != NULL){
+        x = x + R->parent->info_mobil.hargaRental;
+        R = R->next;
     }
 }

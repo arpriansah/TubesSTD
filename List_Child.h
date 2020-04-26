@@ -10,7 +10,8 @@ struct dataPenyewa{
     string Nama;
     string Alamat;
     double NoTlp;
-    int TglLahir;
+    int tanggal_peminjaman;
+    int tanggal_pengembalian;
     ;
 };
 typedef dataPenyewa infoType_Child;

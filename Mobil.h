@@ -15,6 +15,7 @@ struct infotype{
     string jenis_mobil;
     string nama_mobil;
     string kondisi_mobil;
+    int hargaRental;
 };
 struct elmlist_mobil{
     infotype info_mobil;
