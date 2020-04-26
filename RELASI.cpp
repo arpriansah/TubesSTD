@@ -85,6 +85,7 @@ void deleteAfterRelasi(addressRelasi Prec, addressRelasi &P)
 }
 
 addressRelasi checkConnection(listRelasi L,ListChild L2,List_mobil L3,int X, int Y){
+    /*Mencari addressParent dan addressChild kemudian mencari addressRelasi yang terhubung ke addressParent dan adressChild di List relasi*/
     addressMobil Q=searchByID(L3,X);
     addrChild R=searchByID_Child(L2,Y);
     addressRelasi P = L.first;
@@ -100,6 +101,7 @@ addressRelasi checkConnection(listRelasi L,ListChild L2,List_mobil L3,int X, int
 }
 
 void Connection(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y){
+    /*Membuat addressRelasi yang terhubung ke addressParent dan addressChild kemudian dialokasikan kedalam List Relasi */
     addressMobil P =searchByID(L3,Y);
     addrChild Q = searchByID_Child(L2,X);
     if (P != NULL && Q != NULL){
@@ -120,6 +122,7 @@ void Connection(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y){
 }
 
 void disconnect(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y){
+    /*Menghapus addressRelasi di List Relasi yang terhubung ke addressParent dan addressChild*/
     addressMobil P =searchByID(L3,Y);
     addrChild Q = searchByID_Child(L2,X);
     addressRelasi R = L.first,S;
@@ -150,6 +153,7 @@ void disconnect(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y){
 
 
 void Delete_Child(listRelasi &L,ListChild &L2,int X){
+    /* Menghapus address_relasi yang terhubung ke addressChild kemudian menghapus addressChild melalui List relasi*/
     addrChild Q = searchByID_Child(L2,X);
     addressRelasi R = L.first,S;
     if (Q != NULL){
@@ -189,6 +193,7 @@ void Delete_Child(listRelasi &L,ListChild &L2,int X){
 }
 
 void Delete_Parent(listRelasi &L,List_mobil &L2,int X){
+    /* Menghapus address_relasi yang terhubung ke addressParent kemudian menghapus addressParent melalui List relasi*/
     addressMobil Q = searchByID(L2,X);
     addressRelasi R = L.first,S;
     if (Q != NULL){
@@ -276,6 +281,7 @@ void printRelasi(listRelasi L){
 }
 
 void Total_Keuntungan_case1(listRelasi L,List_mobil L2,int &x){
+    /*Menghitung seluruh harga rental di List relasi*/
     addressRelasi R = L.first;
     while (R != NULL){
         x = x + R->parent->info_mobil.hargaRental;
