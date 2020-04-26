@@ -21,21 +21,21 @@ int main(){
     int menu, r, s, x;
     do {
         system("CLS");
-    	cout << "*==========================================*" << endl;
-    	cout << "*||              MAIN MENU               ||*" << endl;
-    	cout << "*==========================================*" << endl;
-    	cout << "* 1.  Input Parent                         *" << endl;
-    	cout << "* 2.  Print all parent                     *" << endl;
-    	cout << "* 3.  Input child                          *" << endl;
-    	cout << "* 4.  Print child                          *" << endl;
-    	cout << "* 5.  Connect                              *" << endl;
-    	cout << "* 6.  Check connect                        *" << endl;
-    	cout << "* 7.  Disconnect                           *" << endl;
-    	cout << "* 8.  Print Relasi                         *" << endl;
-        cout << "* 9.  Print                                *" << endl;
-        cout << "* 10. Delete Parent                        *" << endl;
-        cout << "* 11. Delete Child                         *" << endl;
-    	cout << "*==========================================*" << endl;
+    	cout << "*===================================================================*" << endl;
+    	cout << "*||                       JASA SEWA MOBIL                         ||*" << endl;
+    	cout << "*===================================================================*" << endl;
+    	cout << "* 1.  Membuat data mobil                                            *" << endl;
+    	cout << "* 2.  Menampilkan semua data mobil                                  *" << endl;
+    	cout << "* 3.  Membuat data pelanggan                                        *" << endl;
+    	cout << "* 4.  Menampilkan semua data pelanggan                              *" << endl;
+    	cout << "* 5.  Membuat data pelanggan yang menyewa mobil                     *" << endl;
+    	cout << "* 6.  Cek status pelanggan yang belum mengembalikan mobil           *" << endl;
+    	cout << "* 7.  Menghapus pelanggan yang sudah mengembalikan mobil            *" << endl;
+    	cout << "* 8.  Menampilkan semua data pelanggan beserta mobil yang disewa    *" << endl;
+        cout << "* 9.  Mencari data pelanggan melalui ID mobil yang disewa           *" << endl;
+        cout << "* 10. Menghapus data mobil                                          *" << endl;
+        cout << "* 11. Menghapus data pelanggan                                      *" << endl;
+    	cout << "*===================================================================*" << endl;
     	cout << "\n Pilih menu (Angka): ";
     	cin >> menu;
 
