@@ -100,6 +100,8 @@ int main(){
             case 5:{
                 system("CLS");
                 cout << "*==INSERT RELASI==*" << endl;
+		cout << printInfo_mobil(LM);
+                cout << endl;
                 cout << " ID Mobil   : ";
                 cin >> r;
                 cout << " ID Penyewa : ";
