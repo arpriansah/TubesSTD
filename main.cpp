@@ -22,7 +22,7 @@ int main(){
   do {
         system("CLS");
     	cout << "*===================================================================*" << endl;
-    	cout << "*||                       JASA SEWA MOBIL                         ||*" << endl;
+    	cout << "*||                       JASA SEWA MOBIL SEMINGGU                  ||*" << endl;
     	cout << "*===================================================================*" << endl;
     	cout << "* 1.  Membuat data mobil                                            *" << endl;
     	cout << "* 2.  Menampilkan semua data mobil                                  *" << endl;
