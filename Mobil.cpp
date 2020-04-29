@@ -1,5 +1,3 @@
-// Nama : Arpriansah Yonathan
-// NIM  : 1301194112
 #include <iostream>
 #include "Mobil.h"
 
