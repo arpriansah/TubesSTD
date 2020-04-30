@@ -4,7 +4,7 @@ void createListRelasi(listRelasi &L)
 {
     L.first =NULL;
     L.last = NULL;
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 addressRelasi alokasi_Relasi(addressMobil P,addrChild Q)
 {
@@ -13,12 +13,12 @@ addressRelasi alokasi_Relasi(addressMobil P,addrChild Q)
     R -> child = Q;
     R -> next =NULL;
     return R;
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void dealokasiRelasi(addressRelasi &P)
 {
     delete P;
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 void insertFirstRelasi(listRelasi &L, addressRelasi P)
 {
     if (L.first == NULL)
@@ -31,7 +31,7 @@ void insertFirstRelasi(listRelasi &L, addressRelasi P)
         P->next= L.first;
         L.first = P;
     }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 void insertLastRelasi(listRelasi &L, addressRelasi P)
 {
     if (L.first == NULL)
@@ -44,12 +44,12 @@ void insertLastRelasi(listRelasi &L, addressRelasi P)
         L.last->next =P;
         L.last =P;
     }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 void insertAfterRelasi(addressRelasi Prec, addressRelasi P)
 {
     P = Prec->next ;
     Prec->next = P;
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 void deleteFirstRelasi(listRelasi&L, addressRelasi &P)
 {
     P =L.first;
@@ -63,7 +63,7 @@ void deleteFirstRelasi(listRelasi&L, addressRelasi &P)
     {
         L.first = NULL;
     }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 void deleteLastRelasi(listRelasi &L, addressRelasi &P)
 {
     addressRelasi temp =L.first;
@@ -74,7 +74,7 @@ void deleteLastRelasi(listRelasi &L, addressRelasi &P)
     }
     L.last = temp;
     L.last->next =NULL;
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 void deleteAfterRelasi(addressRelasi Prec, addressRelasi &P)
 {
     P= Prec->next;
@@ -82,7 +82,7 @@ void deleteAfterRelasi(addressRelasi Prec, addressRelasi &P)
     P->parent =NULL;
     Prec->next = P->next;
     P->next =NULL;
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 addressRelasi checkConnection(listRelasi L,ListChild L2,List_mobil L3,int X, int Y){
     /*Mencari addressParent dan addressChild kemudian mencari addressRelasi yang terhubung ke addressParent dan adressChild di List relasi*/
@@ -98,7 +98,7 @@ addressRelasi checkConnection(listRelasi L,ListChild L2,List_mobil L3,int X, int
         P = P->next;
     }
     return NULL;
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void Connection(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y){
     /*Membuat addressRelasi yang terhubung ke addressParent dan addressChild kemudian dialokasikan kedalam List Relasi */
@@ -119,7 +119,7 @@ void Connection(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y){
             cout<<"NIK penyewa tidak ditemukan... "<<endl;
         }
     }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void disconnect(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y){
     /*Menghapus addressRelasi di List Relasi yang terhubung ke addressParent dan addressChild*/
@@ -149,7 +149,7 @@ void disconnect(listRelasi &L,ListChild L2,List_mobil L3,int X, int Y){
             dealokasiRelasi(R);
         }
     }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 
 void Delete_Child(listRelasi &L,ListChild &L2,int X){
@@ -190,7 +190,7 @@ void Delete_Child(listRelasi &L,ListChild &L2,int X){
     }else{
         cout<<"NIK penyewa tidak ditemukan..."<<endl;
     }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void Delete_Parent(listRelasi &L,List_mobil &L2,int X){
     /* Menghapus address_relasi yang terhubung ke addressParent kemudian menghapus addressParent melalui List relasi*/
@@ -241,7 +241,7 @@ void Delete_Parent(listRelasi &L,List_mobil &L2,int X){
     }else{
         cout<<"ID mobil tidak ditemukan..."<<endl;
     }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void printRelasi(listRelasi L){
     addressRelasi P;
@@ -278,7 +278,7 @@ void printRelasi(listRelasi L){
         cout << "*================================*" << endl;
         cout << endl;
     }
-}
+}///Arpriansah Yonathan (1301194112)
 
 void Total_Keuntungan_case1(listRelasi L,List_mobil L2,int &x){
     /*Menghitung seluruh harga rental di List relasi*/
@@ -287,4 +287,4 @@ void Total_Keuntungan_case1(listRelasi L,List_mobil L2,int &x){
         x = x + R->parent->info_mobil.hargaRental;
         R = R->next;
     }
-}
+}///Arpriansah Yonathan (1301194112)
