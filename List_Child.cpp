@@ -4,7 +4,7 @@
 void createList(ListChild &L){
     /* Membuat L.first dengan isi NULL*/
     L.first = NULL;
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 
 addrChild createNewElmt(infoType_Child X){
@@ -20,12 +20,12 @@ addrChild createNewElmt(infoType_Child X){
     P->next=NULL;
     P->prev=NULL;
     return P;
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void dealokasi_Child(addrChild &P){
     /* Menghapus addressChild*/
     delete P;
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void insertFirst(ListChild &L,addrChild P){
     /*Memasukkan addressChild ke dalam List sebagai urutan pertama di List*/
@@ -41,7 +41,7 @@ void insertFirst(ListChild &L,addrChild P){
         P->next=P;
         P->prev=P;
     }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void insertLast(ListChild &L,addrChild P){
     /*Memasukkan addressChild ke dalam List sebagai urutan terakhir di List*/
@@ -56,7 +56,7 @@ void insertLast(ListChild &L,addrChild P){
         P->next=P;
         P->prev=P;
     }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void insertAfter(ListChild &L,addrChild Prec,addrChild P){
     /*Memasukkan addressChild P setelah Prec di List*/
@@ -64,7 +64,7 @@ void insertAfter(ListChild &L,addrChild Prec,addrChild P){
     P->prev=Prec;
     Prec->next->prev=P;
     Prec->next=P;
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void deleteFirst(ListChild &L,addrChild &P){
     /*Menghapus urutan pertama addressChild ke dalam List*/
@@ -78,7 +78,7 @@ void deleteFirst(ListChild &L,addrChild &P){
     }else {
         L.first=NULL;
     }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void deleteLast(ListChild &L,addrChild &P){
     /*Menghapus urutan terakhir addressChild di dalam List*/
@@ -91,7 +91,7 @@ void deleteLast(ListChild &L,addrChild &P){
     }else {
         L.first=NULL;
     }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void deleteAfter(ListChild &L,addrChild &Prec,addrChild &P){
     /*Menghapus addressChild  setelah element Prec di dalam List*/
@@ -107,7 +107,7 @@ void deleteAfter(ListChild &L,addrChild &Prec,addrChild &P){
     }else if (Prec ->next == Prec){
         L.first=NULL;
     }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 addrChild searchByID_Child(ListChild L,int x){
     /* Mencari address dengan ID dan setelah ditemukan akan mengembalikan address tersebut
@@ -125,7 +125,7 @@ addrChild searchByID_Child(ListChild L,int x){
    }else {
     return NULL;
    }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void printList(ListChild L){
     /* Memperlihatkan semua info didalam List*/
@@ -144,7 +144,7 @@ void printList(ListChild L){
         cout<<"List Kosong. . .";
     }
     cout<<endl;
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void insertSorted(ListChild &L, infoType_Child X){
     /* Memasukkan info=x setelah itu mengalokasikan address berdasarkan Pengembalian Mobil*/
@@ -161,7 +161,7 @@ void insertSorted(ListChild &L, infoType_Child X){
             insertAfter(L,Q->prev,createNewElmt(X));
         }
     }
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void delete_(ListChild &L,addrChild &P){
     if (P != NULL){
@@ -177,7 +177,7 @@ void delete_(ListChild &L,addrChild &P){
         cout<<"Delete telah berhasil..."<<endl;
     }
 
-}
+}/// Muh. Fachrul Hidayat (1301194066)
 
 void inputUserChild(ListChild &L){
     /* Menerima inputan user setelah itu dimasukkan ke dalam list*/
@@ -207,4 +207,4 @@ void inputUserChild(ListChild &L){
         cout << "NIK telah terdaftar... Coba lagi" << endl;
     }
 
-}
+}/// Muh. Fachrul Hidayat (1301194066)
