@@ -4,6 +4,7 @@
 using namespace std;
 
 addressMobil alokasi_mobil(infotype x){
+    //Arpriansah Yonathan - 1301194112
     addressMobil P = new elmlist_mobil;
     info_mobil(P) = x;
     next_mobil(P) = NULL;
@@ -11,14 +12,17 @@ addressMobil alokasi_mobil(infotype x){
 }
 
 void dealokasi_mobil(addressMobil &P){
+    //Arpriansah Yonathan - 1301194112
     delete P;
 }
 
 void createListMobil(List_mobil &L){
+    //Arpriansah Yonathan - 1301194112
     first_mobil(L) = NULL;
 }
 
 void insertFirstMobil(List_mobil &L, addressMobil P){
+    //Arpriansah Yonathan - 1301194112
     if(first_mobil(L) == NULL){
         first_mobil(L) = P;
     }else{
@@ -28,6 +32,7 @@ void insertFirstMobil(List_mobil &L, addressMobil P){
 }
 
 void insertAfterMobil(List_mobil &L, addressMobil Prec, addressMobil &P){
+    //Arpriansah Yonathan - 1301194112
     if(Prec != NULL){
         if(next_mobil(Prec) == NULL){
             insertLastMobil(L, P);
@@ -39,6 +44,7 @@ void insertAfterMobil(List_mobil &L, addressMobil Prec, addressMobil &P){
 }
 
 void insertLastMobil(List_mobil &L, addressMobil P){
+    //Arpriansah Yonathan - 1301194112
     if(first_mobil(L) == NULL){
         insertFirstMobil(L, P);
     }else{
@@ -51,6 +57,7 @@ void insertLastMobil(List_mobil &L, addressMobil P){
 }
 
 void deleteFirstMobil(List_mobil &L, addressMobil &P){
+    //Arpriansah Yonathan - 1301194112
     if(first_mobil(L) == NULL){
         cout << "Data Tidak Ada" << endl;
     }else{
@@ -66,6 +73,7 @@ void deleteFirstMobil(List_mobil &L, addressMobil &P){
 }
 
 void deleteAfterMobil(List_mobil &L, addressMobil Prec, addressMobil &P){
+    //Arpriansah Yonathan - 1301194112
     if(Prec != NULL){
         if(next_mobil(next_mobil(Prec)) == NULL){
             deleteLastMobil(L, P);
@@ -78,6 +86,7 @@ void deleteAfterMobil(List_mobil &L, addressMobil Prec, addressMobil &P){
 }
 
 void deleteLastMobil(List_mobil &L, addressMobil &P){
+    //Arpriansah Yonathan - 1301194112
     if(first_mobil(L) != NULL){
         if(next_mobil(first_mobil(L)) == NULL){
             P = first_mobil(L);
@@ -94,6 +103,7 @@ void deleteLastMobil(List_mobil &L, addressMobil &P){
 }
 
 addressMobil searchByID(List_mobil L, int x){
+    //Arpriansah Yonathan - 1301194112
     addressMobil P = first_mobil(L);
     while(P != NULL){
         if(x == info_mobil(P).IDmobil){
@@ -105,6 +115,7 @@ addressMobil searchByID(List_mobil L, int x){
 }
 
 void printInfo_mobil(List_mobil L){
+    //Arpriansah Yonathan - 1301194112
     addressMobil P;
     if(first_mobil(L) == NULL){
         cout << "Tidak Ada Mobil" << endl;
